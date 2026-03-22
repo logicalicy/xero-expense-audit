@@ -1,0 +1,59 @@
+{
+  "auto_correct": {
+    "MISSING_DUE_DATE": {
+      "enabled": true,
+      "strategies": ["copy_bill_date"],
+      "description": "Set due date equal to the bill date."
+    },
+    "MISSING_DESCRIPTION": {
+      "enabled": true,
+      "strategies": ["infer_from_attachment", "ai_infer_from_context"],
+      "description": "Try attachment vision first, fall back to AI inference from context."
+    },
+    "MISSING_ACCOUNT_CODE": {
+      "enabled": true,
+      "strategies": ["supplier_default_account"],
+      "description": "Use the supplier contact PurchasesDefaultAccountCode."
+    },
+    "MISSING_TAX_RATE": {
+      "enabled": true,
+      "strategies": ["account_default_tax_rate"],
+      "description": "Infer tax type from account code via account_tax_defaults config mapping."
+    },
+    "ZERO_AMOUNT": {
+      "enabled": true,
+      "strategies": ["correct_currency_from_attachment"],
+      "description": "Bill total is zero — try to extract correct amount from attachment."
+    },
+    "FOREIGN_CURRENCY_AMOUNT": {
+      "enabled": true,
+      "strategies": ["correct_currency_from_attachment"],
+      "description": "Detect foreign currency in attachment, convert amounts using live FX rate."
+    },
+    "MISSING_SUPPLIER": {
+      "enabled": true,
+      "strategies": ["infer_supplier_from_attachment"],
+      "description": "Extract merchant name from receipt, match against existing contacts.",
+      "match_threshold": 0.7
+    }
+  },
+  "account_tax_defaults": {
+    "_comment": "Maps account code → Xero TaxType. INPUT2 = 20% VAT. NONE = no VAT. Customise to your Chart of Accounts.",
+    "_fallback": "INPUT2",
+    "400": "INPUT2",
+    "500": "NONE"
+  },
+  "new_contact_defaults": {
+    "purchases_account_name": "General Expenses"
+  },
+  "director_loan": {
+    "account_code": "835",
+    "account_name": "Directors Loan Account"
+  },
+  "supplier_audit": {
+    "enabled": true,
+    "infer_missing_purchases_account": true,
+    "infer_missing_tax_rate": true,
+    "infer_from": "most_recent_purchase"
+  }
+}

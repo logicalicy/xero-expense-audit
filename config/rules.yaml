@@ -1,0 +1,28 @@
+# Validation rules.
+# Adjust to match your Chart of Accounts and tax setup.
+
+required_tracking_categories: []  # Disabled.
+
+# Account codes that must always have an attachment.
+attachment_required_account_codes: []   # Empty = all expenses need attachments.
+
+# Tax rate names that are invalid on expense accounts.
+invalid_expense_tax_rates:
+  - "Output Tax"
+  - "BAS Excluded"   # Add your org's output/sales tax rate names here.
+
+# Duplicate transaction detection window (days).
+duplicate_window_days: 7
+
+# Amount threshold below which duplicates are ignored.
+duplicate_ignore_below: 5.00
+
+# Currency anomaly: flag if converted rate deviates more than X% from xe.com.
+# (Future: integrate FX API).
+fx_deviation_threshold_pct: 5.0
+
+# Known expense account code prefixes (for validation).
+# E.g. in Xero UK, expense accounts are usually 4xx-6xx.
+expense_account_code_range:
+  min: 400
+  max: 699

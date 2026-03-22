@@ -1,0 +1,15 @@
+# AI model configuration.
+# Adjust models here.
+
+# Text model for expense triage, field suggestions, etc.
+text_model: claude-haiku-4-5
+
+# Vision model for receipt / attachment image analysis.
+vision_model: claude-haiku-4-5
+
+# Max tokens for AI responses (keep low).
+max_tokens: 512
+
+# Minimum confidence threshold for auto-correct suggestions.
+# (suppress below this threshold).
+min_auto_correct_confidence: 0.7

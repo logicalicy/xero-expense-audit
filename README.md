@@ -8,6 +8,8 @@
 
 A CLI tool that validates Xero bills and bank transactions, flags missing or incorrect fields, and queues suggested corrections for interactive review before anything touches your books. Most fixes are deterministic (copy dates, look up supplier defaults, convert FX via ECB rates). When structured data isn't enough, Claude Haiku reads receipt images, extracts line descriptions, and infers expense categories.
 
+Project overview (blog): https://blog.mariohayashi.com/p/using-ai-to-make-xero-expense-auditing
+
 ## Prerequisites
 
 - Python 3.12+
